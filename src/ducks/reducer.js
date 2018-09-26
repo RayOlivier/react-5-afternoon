@@ -4,9 +4,9 @@ const initialState = {
   city: "",
   propToBeUsedOn: "",
   found: false,
-  realEstateAgent: "false",
-  cost: 0,
-  downPayment: 0,
+  realEstateAgent: "",
+  cost: "",
+  downPayment: "",
   credit: "",
   history: "",
   addressOne: "",
@@ -32,6 +32,96 @@ const UPDATE_ADDRESS_3 = "UPDATE_ADDRESS_3"
 const UPDATE_FIRST = "UPDATE_FIRST"
 const UPDATE_LAST = "UPDATE_LAST"
 const UPDATE_EMAIL = "UPDATE_EMAIL"
+
+function reducer(state = initialState, action) {
+  console.log("REDUCER HIT: Action ->", action)
+  console.log("STATE: ", state)
+  switch (action.type) {
+    case UPDATE_EMAIL:
+      return {
+        ...state,
+        email: action.payload
+      }
+    case UPDATE_FIRST:
+      return {
+        ...state,
+        firstName: action.payload
+      }
+    case UPDATE_LAST:
+      return {
+        ...state,
+        lastName: action.payload
+      }
+    case UPDATE_ADDRESS_1:
+      return {
+        ...state,
+        addressOne: action.payload
+      }
+    case UPDATE_ADDRESS_2:
+      return {
+        ...state,
+        addressTwo: action.payload
+      }
+    case UPDATE_ADDRESS_3:
+      return {
+        ...state,
+        addressThree: action.payload
+      }
+    case UPDATE_HISTORY:
+      return {
+        ...state,
+        history: action.payload
+      }
+    case UPDATE_CREDIT:
+      return {
+        ...state,
+        credit: action.payload
+      }
+    case UPDATE_COST:
+      return {
+        ...state,
+        cost: action.payload
+      }
+    case UPDATE_DOWN_PAYMENT:
+      return {
+        ...state,
+        downPayment: action.payload
+      }
+    case UPDATE_AGENT:
+      return {
+        ...state,
+        realEstateAgent: action.payload
+      }
+    case UPDATE_LOAN_TYPE:
+      return {
+        ...state,
+        loanType: action.payload
+      }
+    case UPDATE_PROPERTY_TYPE:
+      return {
+        ...state,
+        propertyType: action.payload
+      }
+
+    case UPDATE_CITY:
+      return {
+        ...state,
+        city: action.payload
+      }
+    case UPDATE_PROP:
+      return {
+        ...state,
+        propToBeUsedOn: action.payload
+      }
+    case UPDATE_FOUND:
+      return {
+        ...state,
+        found: action.payload
+      }
+    default:
+      return state
+  }
+}
 
 export function updateEmail(x) {
   return {
@@ -141,96 +231,6 @@ export function updateFound(found) {
   return {
     type: UPDATE_FOUND,
     payload: found
-  }
-}
-
-function reducer(state = initialState, action) {
-  console.log("REDUCER HIT: Action ->", action)
-
-  switch (action.type) {
-    case UPDATE_EMAIL:
-      return {
-        ...state,
-        email: action.payload
-      }
-    case UPDATE_FIRST:
-      return {
-        ...state,
-        firstName: action.payload
-      }
-    case UPDATE_LAST:
-      return {
-        ...state,
-        lastName: action.payload
-      }
-    case UPDATE_ADDRESS_1:
-      return {
-        ...state,
-        addressOne: action.payload
-      }
-    case UPDATE_ADDRESS_2:
-      return {
-        ...state,
-        addressTwo: action.payload
-      }
-    case UPDATE_ADDRESS_3:
-      return {
-        ...state,
-        addressThree: action.payload
-      }
-    case UPDATE_HISTORY:
-      return {
-        ...state,
-        history: action.payload
-      }
-    case UPDATE_CREDIT:
-      return {
-        ...state,
-        credit: action.payload
-      }
-    case UPDATE_COST:
-      return {
-        ...state,
-        cost: action.payload
-      }
-    case UPDATE_DOWN_PAYMENT:
-      return {
-        ...state,
-        downPayment: action.state
-      }
-    case UPDATE_AGENT:
-      return {
-        ...state,
-        realEstateAgent: action.payload
-      }
-    case UPDATE_LOAN_TYPE:
-      return {
-        ...state,
-        loanType: action.payload
-      }
-    case UPDATE_PROPERTY_TYPE:
-      return {
-        ...state,
-        propertyType: action.payload
-      }
-
-    case UPDATE_CITY:
-      return {
-        ...state,
-        city: action.payload
-      }
-    case UPDATE_PROP:
-      return {
-        ...state,
-        propToBeUsedOn: action.payload
-      }
-    case UPDATE_FOUND:
-      return {
-        ...state,
-        found: action.payload
-      }
-    default:
-      return state
   }
 }
 
